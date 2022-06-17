@@ -12,6 +12,8 @@ import {
   Image,
   Heading,
   Text,
+  Badge,
+  Button, WrapItem
 } from '@chakra-ui/react';
 function SearchBook() {
   const [books, setBooks] = useState([]);
@@ -38,7 +40,7 @@ function SearchBook() {
         console.log(error);
       });
   }, []);
-  
+
   return (
     <>
       <Container>
@@ -70,6 +72,12 @@ function SearchBook() {
                   <br />
                   <Heading fontSize="sm">{e['title']}</Heading>
                   <Text mt={4}>{e['author']}</Text>
+                  <Badge>Price: {e['price']}</Badge>
+                  <br />
+                  <br />
+                  <WrapItem>
+                    <Button colorScheme="telegram">Read More</Button>
+                  </WrapItem>
                 </Box>
               </Link>
             ))}
@@ -80,19 +88,3 @@ function SearchBook() {
 }
 
 export default SearchBook;
-
-// books.map((e, i) => (
-//   <Link state={e} key={i} to={`/book/${e['id']}`}>
-//     <Box p={5} shadow="md" borderWidth="1px">
-//       <Divider />
-//       <Image
-//         sx={{ width: '100%' }}
-//         src={e['imgUrl']}
-//         alt="Dan Abramov"
-//       />
-//       <br />
-//       <Heading fontSize="sm">{e['title']}</Heading>
-//       <Text mt={4}>{e['author']}</Text>
-//     </Box>
-//   </Link>
-// ))
