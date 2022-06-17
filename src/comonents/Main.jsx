@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   Divider,
+  Badge, Button, WrapItem
 } from '@chakra-ui/react';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -47,6 +48,12 @@ const Main = () => {
               <br />
               <Heading fontSize="sm">{e['title']}</Heading>
               <Text mt={4}>{e['author']}</Text>
+              <Badge>Price: {e['price']}</Badge>
+                  <br />
+                  <br />
+                  <WrapItem>
+                    <Button colorScheme="telegram">Read More</Button>
+                  </WrapItem>
             </Box>
           </Link>
         ))}
